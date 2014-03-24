@@ -82,7 +82,6 @@
         settings.el.root = $(this);
         settings = $.extend({}, settings, options);
         methods.init.apply();
-            console.log(settings);
         return this;
    }
 })(jQuery);
