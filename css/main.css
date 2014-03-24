@@ -1,0 +1,14 @@
+html,body{
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body{
+    padding: 1em;
+}
+.css3Carrousel{
+    height: 120px;
+    width: 350px;
+    background-color: #ff8000;
+    margin: auto;
+}

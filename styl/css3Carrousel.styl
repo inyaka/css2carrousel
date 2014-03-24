@@ -1,0 +1,67 @@
+.css3Carrousel
+  position relative
+  .c3c-container
+    margin 0 auto
+    padding 0
+    height 100%
+    position relative
+    overflow hidden
+    ul
+      margin 0
+      padding 0
+      height 100%
+      position absolute
+      left 0
+      word-spacing 5px
+      -webkit-transition all 1s ease
+      -moz-transition all 1s ease
+      -ms-transition all 1s ease
+      transition all 1s ease
+      &:before
+        content ' '
+        display inline-block
+        vertical-align middle
+        height 100%
+  li
+    display inline-block
+    vertical-align middle
+    width 90px
+    margin 0
+    padding 0.1em
+    overflow hidden
+
+.c3c-buttons
+  position absolute
+  height 100%
+  width 100%
+  top 0
+  pointer-events none
+  [class*='c3c-button-']
+    position absolute
+    display inline-block
+    width 1em
+    height 100%
+    background-color #7cbbfe
+    color #fff
+    pointer-events auto
+    cursor pointer
+  [class*='c3c-button-']:hover
+    background-color #36a9e1
+  [class*='c3c-button-']:before
+    position absolute
+    margin-top -1em
+    width 100%
+    text-align center
+    top 50%
+
+.c3c-button-prev,.c3c-button-next
+
+.c3c-button-prev
+  left 0
+  &:before
+    content '<'
+
+.c3c-button-next
+  right 0
+  &:before
+    content '>'
