@@ -1,4 +1,4 @@
-css2carrousel
+css3carrousel
 =============
 
-simple carrousel with css3 and jquery
+Es un sencillo carrusel echo con css3 y algo de jquery, puedes configurar este carrusel directamente desde css3, incluso el tiempo y tipo de animación
