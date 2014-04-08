@@ -17,6 +17,7 @@
             settings.el.root.find('.c3c-container').width(settings.width.container);
             settings.el.root.on('click','.c3c-button-prev',methods.movePrev);
             settings.el.root.on('click','.c3c-button-next',methods.moveNext);
+            if(settings.el.root.hasClass('c3c-steps')) methods.drawSteps();
 
         },
         movePrev: function(){
@@ -39,6 +40,28 @@
             }
             methods.stopAnimation();
         },
+        drawSteps: function(){
+            li = '';
+            $.each(settings.el.ul.find('.c3c-item'),function(i,val){
+                val = $(val);
+                id= 'c3c-item-'+i;
+                val.attr('id',id);
+                li += '<li><a href="#'+id+'">'+val.attr('title')+'</a></li>';
+            });
+            settings.el.root.prepend('<ul class="c3c-steps-nav">'+li+'</ul>');
+            settings.el.navSteps = settings.el.root.find('.c3c-steps-nav')
+            methods.goToStep();
+        },
+        goToStep: function(){
+            var firstChildLeft = $(settings.el.navSteps.find('li:eq(0) a').attr('href')).position().left;
+            settings.el.navSteps.find('li a').click(function(e){
+                e.preventDefault();
+                var href = $(this).attr('href');
+                var p = $(href).position();
+                settings.el.ul.css({left:-p.left+firstChildLeft});
+            })
+
+        },
         startAnimation: function(){
             settings.el.ul.removeClass('c3c-stop-amimate');
         },
@@ -47,7 +70,6 @@
             setTimeout(methods.startAnimation,settings.animateTime);
         },
         config: function(){
-
             settings.el.container =  settings.el.root.find('.c3c-container');
             settings.el.ul =  settings.el.container.find('ul');
             settings.el.prev = settings.el.root.find('.c3c-button-prev');
@@ -63,10 +85,10 @@
             settings.width.el = settings.el.root.width();
             settings.width.item =   settings.el.item.outerWidth(true)+ (settings.wordSpacing*2);
             settings.itemsContainer = Math.floor((settings.width.el-(settings.width.button*2))/ settings.width.item);
+            if(settings.itemsContainer==0) settings.itemsContainer = 1;
             settings.width.moveContainer = settings.itemsContainer * settings.width.item;
             settings.width.container = settings.width.moveContainer     ;
             settings.items =  settings.el.item.length;
-           //  settings.itemWidth =  settings.el.item.outerWidth(true)+(settings.el.item.fontSize/2);
             settings.itemContainer = settings.width.item * settings.items;
         },
         css3Time2Milsecons: function(cssTime) {
@@ -82,6 +104,7 @@
         settings.el.root = $(this);
         settings = $.extend({}, settings, options);
         methods.init.apply();
+        // document.settings = settings;
         return this;
    }
 })(jQuery);

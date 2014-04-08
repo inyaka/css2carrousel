@@ -1,8 +1,7 @@
-
 .css3Carrousel
 {
     position: relative;
-    
+    overflow: hidden;
 }
 .css3Carrousel .c3c-container{
     margin: 0 auto;
@@ -33,9 +32,6 @@
 {
     display: inline-block;
     vertical-align: middle;
-    width: 90px;
-    margin: 0;
-    padding: 0.1em;
     overflow: hidden;
 }
 .c3c-buttons{
@@ -78,4 +74,26 @@
     width: 100%;
     text-align: center;
     top: 50%;
+}
+.c3c-steps-nav{
+    position: absolute;
+    top: 0;
+    padding: 0;
+    margin: 0 1em;
+    text-align: center;
+    width: 100%;
+}
+.c3c-steps-nav a{
+    color: #fff;
+    text-decoration: none;
+    background-color: #33ADFF;
+    padding: 1em;
+    display: inline-block;
+    border-radius: 50%;
+}
+.c3c-steps-nav li{
+    width: auto;
+}
+.c3c-steps {
+    padding-top: 3em;
 }

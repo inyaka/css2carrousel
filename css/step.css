@@ -7,13 +7,14 @@ body{
     padding: 1em;
 }
 .css3Carrousel{
-    height: 120px;
-    width: 350px;
+    width: 670px;
+    height: 520px;
     background-color: #ff8000;
     margin: auto;
 }
+
 .css3Carrousel li{
-    width: 90px;
+    width: 770px;
     margin: 0;
     padding: 0.1em;
 }
